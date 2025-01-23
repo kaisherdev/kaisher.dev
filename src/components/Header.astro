@@ -1,0 +1,52 @@
+---
+import BurgerButton from "@/icons/BurgerButton.astro";
+import CloseIcon from "@/icons/Close.astro";
+---
+
+<header class="w-full bg-slate-900">
+	<nav
+		class="flex justify-between items-center gap-8 h-16 max-w-5xl lg:mx-auto mx-4"
+	>
+		<a href="/" class="lg:font-bold font-bold lg:text-xl text-lg"
+			>[::] Kaisher Dev</a
+		>
+		<ul
+			class="lg:flex hidden justify-center items-center gap-8 [&>li]:text-slate-400 hover:[&>li]:text-slate-200"
+		>
+			<li class="active"><a href="#"></a>Home</li>
+			<li><a href="#"></a>About</li>
+			<li><a href="#"></a>Experience</li>
+			<li><a href="#"></a>Projects</li>
+			<li><a href="#"></a>Blog</li>
+		</ul>
+
+		<div class="hidden inset-0 bg-slate-800">
+			<aside class="flex min-h-16 w-full items-center justify-between">
+				<span class="lg:font-bold font-semibold lg:text-xl text-lg"
+					><a href="/">Menú</a></span
+				>
+				<CloseIcon />
+				<hr />
+			</aside>
+			<ul class="[&>li]:text-slate-400 hover:[&>li]:text-slate-200">
+				<li class="active"><a href="#"></a>Home</li>
+				<li><a href="#"></a>About</li>
+				<li><a href="#"></a>Experience</li>
+				<li><a href="#"></a>Projects</li>
+				<li><a href="#"></a>Blog</li>
+			</ul>
+		</div>
+
+		<div class="flex items-center lg:gap-8 gap-4">
+			<button class="bg-blue-400 hover:bg-blue-300 px-4 py-[6px] rounded-lg"
+				>Contáctame</button
+			>
+			<a href="#" class="md:hidden"><BurgerButton /></a>
+		</div>
+	</nav>
+</header>
+<style>
+	.active {
+		color: #3b82f6;
+	}
+</style>
