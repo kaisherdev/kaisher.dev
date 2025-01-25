@@ -1,0 +1,32 @@
+<div class="flex relative badge-container gap-3 border border-green-200 justify-center items-center bg-gray-800 w-36 px-2 py-1">
+	<div class="badge bg-green-600"></div>
+	<slot />
+</div>
+<style>
+	.badge-container {
+		display: flex;
+		align-items: center;
+		border-radius: 8px;
+	}
+	.badge {
+		width: 5px;
+		height: 5px;
+
+		border-radius: 50%;
+		animation: scaleAnimation 2s infinite;
+		transition-timing-function: ease-in;
+	}
+	@keyframes scaleAnimation {
+		0% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(2);
+			
+		}
+		100% {
+			transform: scale(1);
+			box-shadow: 0 0 5px #fff;
+		}
+	}
+</style>
