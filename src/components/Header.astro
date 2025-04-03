@@ -1,52 +1,166 @@
 ---
-import BurgerButton from "@/icons/BurgerButton.astro";
-import CloseIcon from "@/icons/Close.astro";
+import BurgerButton from "@/assets/icons/BurgerButton.astro";
+import CloseIcon from "@/assets/icons/Close.astro";
+
+const navItems = [
+	{
+		title: "Inicio",
+		label: "home",
+		url: "/",
+	},
+	{
+		title: "Experiencia",
+		label: "experience",
+		url: "/#experience",
+	},
+	{
+		title: "Proyectos",
+		label: "projects",
+		url: "/#projects",
+	},
+	{
+		title: "Sobre mi",
+		label: "about",
+		url: "/#about",
+	},
+	{
+		title: "Testimonios",
+		label: "testimonials",
+		url: "/#testimonials",
+	},
+];
 ---
 
-<header class="w-full bg-slate-900">
-	<nav
-		class="flex justify-between items-center gap-8 h-16 max-w-5xl lg:mx-auto mx-4"
-	>
-		<a href="/" class="lg:font-bold font-bold lg:text-xl text-lg"
-			>[::] Kaisher Dev</a
-		>
-		<ul
-			class="lg:flex hidden justify-center items-center gap-8 [&>li]:text-slate-400 hover:[&>li]:text-slate-200"
-		>
-			<li class="active"><a href="#"></a>Home</li>
-			<li><a href="#"></a>About</li>
-			<li><a href="#"></a>Experience</li>
-			<li><a href="#"></a>Projects</li>
-			<li><a href="#"></a>Blog</li>
-		</ul>
-
-		<div class="hidden inset-0 bg-slate-800">
-			<aside class="flex min-h-16 w-full items-center justify-between">
-				<span class="lg:font-bold font-semibold lg:text-xl text-lg"
-					><a href="/">Menú</a></span
-				>
-				<CloseIcon />
-				<hr />
-			</aside>
-			<ul class="[&>li]:text-slate-400 hover:[&>li]:text-slate-200">
-				<li class="active"><a href="#"></a>Home</li>
-				<li><a href="#"></a>About</li>
-				<li><a href="#"></a>Experience</li>
-				<li><a href="#"></a>Projects</li>
-				<li><a href="#"></a>Blog</li>
-			</ul>
+<header class="fixed w-full bg-slate-900 border-b border-gray-400 top-0 z-[110]">
+	<nav class="flex justify-between items-center gap-8 h-16 max-w-5xl lg:mx-auto mx-4">
+		<div class="flex">
+			<div class="hidden lg:flex gap-4 text-lg [&>a]:text-slate-200 hover:[&>a]:text-slate-400 hover:[&>a]:border-b-2 hover:[&>a]:border-blue-400">
+				{
+					navItems.map((link) => (
+						<a
+							href={link.url}
+							aria-label={link.label}
+							class="border-b-2 border-transparent transition-all duration-300 ease-in-out">
+							{link.title}
+						</a>
+					))
+				}
+			</div>
+			<div class="flex lg:hidden">
+				<button type="button" id="open-menu-button" class="cursor-pointer">
+					<span class="sr-only">Abrir Menú Principal</span>
+					<BurgerButton />
+				</button>
+			</div>
 		</div>
 
-		<div class="flex items-center lg:gap-8 gap-4">
-			<button class="bg-blue-400 hover:bg-blue-300 px-4 py-[6px] rounded-lg"
-				>Contáctame</button
-			>
-			<a href="#" class="md:hidden"><BurgerButton /></a>
+		<div class="flex">
+			<div class="relative flex flex-col">
+				<a
+					href="mailto:kaisher.dev.wese872@passinbox.com"
+					class="relative bg-blue-400 hover:bg-slate-100 hover:text-black/80 px-4 py-1 rounded-full">
+					Contáctame
+				</a>
+			</div>
 		</div>
+
 	</nav>
+	<dialog
+		id="mobile-menu"
+		role="dialog"
+		aria-modal="true"
+		class="transition-(display) bg-gray-900 p-4 lg:hidden size-full max-h-full max-w-full translate-x-0 transform transition-all ease-in-out duration-300 starting:-translate-x-full [&:not([open])]:-translate-x-full z-50"
+		>
+		<div class="z-10 overflow-y-auto">
+			<div>
+				<div class="flex flex-1">
+					<button
+						type="button"
+						id="close-menu-button"
+						class="cursor-pointer text-white transition-all duration-300 ease-in will-change-transform hover:scale-150">
+						<span class="sr-only">Cerrar Menú</span>
+						<CloseIcon />
+					</button>
+				</div>
+			</div>
+			<div class="mt-6 flex flex-col gap-4 [&>a]:text-white [&>a]:font-semibold text-center">
+				{
+					navItems.map((link) => (
+						<a
+							href={link.url}
+							aria-label={link.label}>
+							{link.title}
+						</a>
+					))
+				}
+				<a
+					href="mailto:kaisher.dev.wese872@passinbox.com"
+					class="bg-blue-400 hover:bg-slate-100 hover:text-black/80 px-4 py-[6px] rounded-lg text-center">
+					Contáctame
+				</a>
+			</div>
+		</div>
+	</dialog>
 </header>
+<div id="backdrop"></div>
+
 <style>
-	.active {
-		color: #3b82f6;
+	#backdrop {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 100;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	#backdrop.visible {
+		opacity: 1;
+	}
+
+	dialog::backdrop {
+		display: none;
 	}
 </style>
+
+<script>
+	 // Get the menu elements
+	 const mobileMenu = document.getElementById("mobile-menu") as HTMLDialogElement
+  const openMenuButton = document.getElementById("open-menu-button")
+  const closeMenuButton = document.getElementById("close-menu-button")
+  const mobileItems = mobileMenu.querySelectorAll("a")
+  const backdrop = document.getElementById("backdrop");
+
+  const toggleMenu = () => {
+    mobileMenu.open ? mobileMenu.close() : mobileMenu.showModal()
+
+    if (mobileMenu.open) {
+        backdrop?.classList.add("visible")
+    } else {
+        backdrop?.classList.remove("visible")
+    }
+  }
+
+  // Add event listener to open menu button
+  openMenuButton?.addEventListener("click", toggleMenu)
+
+  // Add event listener to close menu button
+  closeMenuButton?.addEventListener("click", toggleMenu)
+
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = mobileMenu.contains(event.target as Node)
+    const isClickInsideButton = openMenuButton?.contains(event.target as Node)
+
+    if (isClickInsideMenu && !isClickInsideButton) {
+      mobileMenu.close()
+      backdrop?.classList.remove("visible")
+    }
+  })
+
+  mobileItems?.forEach((item) => item.addEventListener("click", toggleMenu))
+
+  </script>
