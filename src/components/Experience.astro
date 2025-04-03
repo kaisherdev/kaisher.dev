@@ -1,0 +1,185 @@
+---
+import LinkLine from "@/components/LinkLine.astro";
+
+const EXPERIENCE = [
+	{
+		title: "Frontend Developer",
+		company: "Saneamientos Ambientales C&W s.a.c.",
+		date: "August, 2024",
+		description:
+			"Responsable de la página web, componentes y utilidades para el diseño y desarrollo de la página web. Optimización de velocidad de navegación, se utilizan formatos de archivos compactos como WebP para imágenes.",
+		link: "https://cywsac.com",
+	},
+	{
+		title: "Desarrollador web",
+		company: "Hynkor s.a.c.",
+		date: "March, 2023",
+		description:
+			"Responsable de la página web, componentes y utilidades para el diseño y desarrollo de la página web. Optimización de velocidad de navegación, se utilizan formatos de archivos compactos como WebP para imágenes.",
+		link: "https://hynkor.com",
+	},
+	{
+		title: "Diseñador web con WordPress",
+		company: "Villa Control s.a.c.",
+		date: "July, 2022",
+		description:
+			"Encargado de la implementación de WordPress para sitios web personalizados y temas prediseñados. Configuración de plugins y temas para mejorar la experiencia del usuario y la SEO on-page. Mejora de la visibilidad y la accesibilidad de los sitios web para los usuarios y motores de búsqueda.",
+		link: "https://villacontrolperu.com",
+	},
+	{
+		title: "Diseñador web con WordPress",
+		company: "F&V Peru s.a.c.",
+		date: "February, 2022",
+		description:
+			"Responsable del diseño y desarrollo del sitio web personalizado a partir de plantillas prediseñadas adaptandolos a las requerimientos y objetivos del cliente. Aplicación de estrategias de SEO para obtimizar el sitio web en los motores de búsqueda.",
+		link: "https://fvperu.com.pe",
+	},
+];
+---
+
+<div id="experience" class="grid place-items-center max-w-5xl mx-auto pt-8 pb-8">
+	<div class="flex flex-col text-center pb-8 lg:max-w-md lg:mx-auto">
+		<h3 class="pb-4 pt-8 text-slate-400 uppercase">
+			Experiencia laboral
+		</h3>
+		<h2 class="font-bold text-2xl pb-4 pt-4">
+			3+ años brindando soluciones <span class="text-blue-400"> innovadoras</span>
+		</h2>
+	</div>
+	<div class="container w-full relative h-auto">
+		<ul class="[&>li]:bg-gray-800">
+			{
+				EXPERIENCE.map(({ title, company, date, description, link }) => (
+					<li class="lg:w-[50%] w-full mb-8 p-4 rounded-lg hover:ring-1 hover:ring-white">
+						<h3 class="font-semibold text-xl uppercase">{company}</h3>
+						<h2 class="text-blue-400 font-semibold text-lg">{title}</h2>
+						<time datetime={date} class="date text-blue-100 text-sm font-normal">
+							{date}
+						</time>
+						<p class="text-gray-400 font-normal text-base leading-5">
+							{description}
+						</p>
+						<LinkLine href={link}>
+							Read more {""}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="w-5 icon icon-tabler icon-tabler-chevron-right"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+								fill="none"
+								stroke-linecap="round"
+								stroke-linejoin="round">
+								<>
+									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+									<path d="M9 6l6 6l-6 6" />
+								</>
+							</svg>
+						</LinkLine>
+						<span class="circle" />
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</div>
+<style>
+	.container::after {
+		position: absolute;
+		content: " ";
+		width: 2px;
+		height: 100%;
+		background-image: linear-gradient(
+			to bottom,
+			rgb(24, 53, 110),
+			rgb(47, 139, 214),
+			#fff
+		);
+	}
+	.container ul li {
+		z-index: 99;
+		position: relative;
+	}
+	.container ul li:nth-child(odd) {
+		float: left;
+		clear: right;
+		transform: translateX(-30px);
+		text-align: right;
+	}
+
+	.container ul li:nth-child(even) {
+		float: right;
+		clear: left;
+		transform: translateX(30px);
+	}
+
+	.container ul li:nth-child(4) {
+		margin-bottom: 0;
+	}
+
+	.container ul li .circle {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		background-color: rgba(16, 238, 246, 0.403);
+		border-bottom: 50%;
+		border-radius: 50%;
+		top: 0;
+	}
+
+	.container ul li .circle::after {
+		position: absolute;
+		content: " ";
+		width: 15px;
+		height: 15px;
+		background-color: rgb(61, 222, 184);
+		border-radius: 50%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.container ul li:nth-child(odd) .circle {
+		right: -30px;
+		transform: translate(50%, -50%);
+	}
+
+	.container ul li:nth-child(even) .circle {
+		left: -30px;
+		transform: translate(-50%, -50%);
+	}
+
+	/* media query start */
+
+	@media screen and (max-width: 993px) {
+		.container {
+			width: 85%;
+		}
+		.container::after {
+			left: -30px;
+		}
+		.container ul li {
+			float: none;
+			clear: none;
+			margin-bottom: 80px;
+		}
+		.container ul li:nth-child(odd) {
+			transform: translateX(0);
+			text-align: left;
+		}
+		.container ul li:nth-child(even) {
+			transform: translateX(0);
+		}
+		.container ul li:nth-child(odd) .circle {
+			left: -30px;
+			transform: translate(-50%, -50%);
+		}
+	}
+	@media screen and (max-width: 640px) {
+		.container {
+			left: 16px;
+		}
+	}
+</style>
