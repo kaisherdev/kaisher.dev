@@ -1,0 +1,51 @@
+---
+import ChevronUpIcon from "@/assets/icons/ChevronUp.astro";
+---
+
+<div
+	id="button-up"
+	class="fixed z-[99] bottom-2 right-2 opacity-0 transition-opacity"
+>
+	<button
+		id="scroll-to-top"
+		class="group flex justify-center items-center size-12 border-2 border-white rounded-full bg-gray-900/80 backdrop:blur cursor-default hover:scale-105 hover:border-blue-400"
+	>
+		<ChevronUpIcon class="rotate-45 hover:rotate-0 transition size-6" />
+	</button>
+</div>
+<script>
+	import { $ } from "@/lib/dom-selector";
+	document.addEventListener("astro:page-load", () => {
+		let timeout: number = 0; // clear timeout identifier
+		const $button = $("#scroll-to-top") as HTMLButtonElement;
+
+		const DISPLAY = { BLOCK: "block", NONE: "none" } as const;
+
+		function toggleScrollToTop() {
+			const scrollTop =
+				document.body.scrollTop || document.documentElement.scrollTop;
+			const display = scrollTop > 20 ? DISPLAY.BLOCK : DISPLAY.NONE;
+
+			if ($button) {
+				const parent = $button.closest("#button-up");
+				parent?.classList.toggle("opacity-0", display === DISPLAY.NONE);
+				$button.classList.toggle("opacity-0", display === DISPLAY.NONE);
+			}
+		}
+
+		function throttledScrollHandler() {
+			if (!timeout) {
+				timeout = requestAnimationFrame(() => {
+					toggleScrollToTop();
+					timeout = 0;
+				});
+			}
+		}
+
+		window.addEventListener("scroll", throttledScrollHandler);
+
+		$button.addEventListener("click", () => {
+			window.scrollTo({ top: 0, behavior: "smooth" });
+		});
+	});
+</script>
