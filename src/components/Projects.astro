@@ -1,0 +1,135 @@
+---
+import LinkButton from "@/components/LinkButton.astro";
+import AstroIcon from "@/assets/icons/Astro.astro";
+import JavaScriptIcon from "@/assets/icons/JavaScript.astro";
+import HtmlIcon from "@/assets/icons/Html.astro";
+import CssIcon from "@/assets/icons/Css.astro";
+import LinkIcon from "@/assets/icons/Link.astro";
+import WordpressIcon from "@/assets/icons/Wordpress.astro";
+import GitHub from "@/assets/icons/GitHub.astro";
+
+const TAGS = {
+	ASTRO: {
+		name: "Astro",
+		class: "size-4",
+		icon: AstroIcon,
+	},
+	WORDPRESS: {
+		name: "WordPress",
+		class: "size-4",
+		icon: WordpressIcon,
+	},
+	HTML: {
+		name: "Html",
+		class: "size-4",
+		icon: HtmlIcon,
+	},
+	CSS: {
+		name: "Css",
+		class: "size-4",
+		icon: CssIcon,
+	},
+	JAVASCRIPT: {
+		name: "JavaScript",
+		class: "size-4",
+		icon: JavaScriptIcon,
+	},
+};
+
+const PROJECTS = [
+	{
+		title: "Portal de soluciones tecnologicas - Villa Control",
+		description:
+			"Sitio web diseñado y construido utilizando herramientas como el editor gutemberg de WordPress.",
+		image:
+			"/villacontrol.webp",
+		link: "https://villacontrolperu.com/",
+		github: "",
+		tags: [TAGS.WORDPRESS],
+	},
+	{
+		title: "Sitio web de monitoreo ambiental - F&V Peru",
+		description:
+			"Sitio web diseñado y construido utilizando herramientas como el editor gutemberg de WordPress.",
+		image:
+			"/fvperu.webp",
+		link: "https://fvperu.com.pe/",
+		github: "",
+		tags: [TAGS.WORDPRESS],
+	},
+	{
+		title: "Portal de servicios de limpieza y saneamiento - C&W S.A.C.",
+		description:
+			"Página web desarrollado desde cero utilizando frameworks (Astro, Tailwind CSS).",
+		image:
+			"/cywsac.webp",
+		link: "https://cywsac.com/",
+		github: "https://github.com/KaisherCode/cywsac",
+		tags: [TAGS.ASTRO, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
+	},
+];
+---
+
+<section id="projects" class="w-full min-w-80">
+	<div class="text-center max-w-md mx-auto">
+		<h3 class="pt-4 text-slate-400 uppercase">Proyectos</h3>
+		<h2 class="font-bold text-2xl pb-4 pt-8">
+			Mis últimos <span class="text-blue-400">trabajos destacados</span>
+		</h2>
+		<p>
+			A continuación, te presento mis proyectos más importantes,
+			que ilustran mi dedicación y pasión por la programación.
+		</p>
+	</div>
+
+	<div
+		class="cards flex lg:justify-center max-w-5xl overflow-x-auto snap-proximity lg:overflow-x-hidden overscroll-x-contain lg:grid grid-cols-3 lg:gap-0 gap-4 h-auto mx-auto pb-10 pt-8"
+	>
+		{
+			PROJECTS.map(({ title, description, image, tags, github, link }) => (
+				<article class="bg-white min-w-60 max-w-72 rounded-lg shadow-xl hover:-translate-y-4 transition mx-auto border border-white">
+					<img src={image} alt="" class="rounded-t-lg" />
+					<div class="p-3">
+						<h4 class="font-bold flex flex-wrap text-blue-400 leading-5">
+							<a href="#">{title}</a>
+						</h4>
+						<ul class="flex lg:gap-2 gap-1 justify-evenly items-center pt-2">
+							{tags.map((tag) => (
+								<li>
+									<tag.icon class={`${tag.class}`} />
+								</li>
+							))}
+						</ul>
+						<ul class="flex justify-between items-center pt-2 pb-2">
+							<p class="text-slate-400 leading-5 text-sm">{description}</p>
+						</ul>
+						<hr class="h-[2px] w-full min-w-full border-t-0 bg-transparent bg-gradient-to-r from-transparent via-blue-400 to-transparent bg-center text-center"/>
+						<footer class="flex justify-center gap-2 text-white text-sm mt-2">
+							{github && (
+								<LinkButton href={github}>
+									<GitHub class="size-4" />
+									Code
+								</LinkButton>
+							)}
+							{link && (
+								<LinkButton href={link}>
+									<LinkIcon class="size-4" />
+									Preview
+								</LinkButton>
+							)}
+						</footer>
+					</div>
+				</article>
+			))
+		}
+	</div>
+</section>
+
+<style>
+.cards article img{
+	transition: transform 0.4s ease-in-out;
+}
+.cards article:hover img{
+	transform: scale(0.95);
+}
+</style>
