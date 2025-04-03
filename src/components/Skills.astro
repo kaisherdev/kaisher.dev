@@ -1,0 +1,61 @@
+---
+import AstroIcon from "@/assets/icons/Astro.astro";
+import HtmlIcon from "@/assets/icons/Html.astro";
+import CssIcon from "@/assets/icons/Css.astro";
+import JavaScriptIcon from "@/assets/icons/JavaScript.astro";
+import PythonIcon from "@/assets/icons/Python.astro";
+import GitIcon from "@/assets/icons/Git.astro";
+---
+
+<section class="card relative max-w-5xl mx-auto rounded-lg p-[1px] ">
+	<div
+		class="flex flex-wrap max-w-5xl mx-auto h-auto bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% lg:gap-4 gap-2 justify-evenly items-center rounded-lg p-4"
+	>
+		<a
+			href="#"
+			class="flex gap-1 justify-center items-center p-2 rounded-xl border border-slate-100 hover:bg-white hover:text-black/80"
+		>
+			<HtmlIcon class="size-4" />
+			Html5
+		</a>
+		<a
+			href="#"
+			class="flex gap-1 justify-center items-center p-2 rounded-xl border border-slate-100 hover:bg-white hover:text-black/80"
+			><CssIcon class="size-4" />Css3</a
+		>
+		<a
+			href="#"
+			class="flex gap-1 justify-center items-center p-2 rounded-xl border border-slate-100 hover:bg-white hover:text-black/80"
+			><JavaScriptIcon class="size-4" />JavaScript</a
+		>
+		<a
+			href="#"
+			class="flex gap-1 justify-center items-center p-2 rounded-xl border border-slate-100 hover:bg-white hover:text-black/80"
+		>
+			<AstroIcon class="size-4" />
+			Astro
+		</a>
+		<a
+			href="#"
+			class="flex gap-1 justify-center items-center p-2 rounded-xl border border-slate-100 hover:bg-white hover:text-black/80"
+		>
+			<PythonIcon class="size-4" />
+			Python
+		</a>
+		<a
+			href="#"
+			class="flex gap-1 justify-center items-center p-2 rounded-xl border border-slate-100 hover:bg-white hover:text-black/80"
+		>
+			<GitIcon class="size-4" />
+			Git
+		</a>
+	</div>
+</section>
+
+<style>
+
+	.card {
+		background: var(--border-color);
+	}
+
+</style>
