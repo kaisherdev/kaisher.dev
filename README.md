@@ -1,6 +1,6 @@
 # 👨‍💻 Kaisher Dev 👨‍💻 - Portfolio 2025
 
-
+Mi porfolio como programdor Frontend Developer.
 
 ![banner](./public/readme-image.png)
 
