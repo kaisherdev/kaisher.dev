@@ -2,7 +2,7 @@
 
 
 
-![banner](./public/kaisher-dev-readme.png)
+![banner](./public/readme-image.png)
 
 ## 🛠️ Tecnologías
 
