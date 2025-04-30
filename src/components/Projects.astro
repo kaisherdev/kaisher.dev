@@ -37,15 +37,24 @@ const TAGS = {
 };
 
 const PROJECTS = [
+
 	{
-		title: "Portal de soluciones tecnologicas - Villa Control",
+		title: "Portal de servicios de limpieza y saneamiento - C&W S.A.C.",
 		description:
-			"Sitio web diseñado y construido utilizando herramientas como el editor gutemberg de WordPress.",
+			"Página web desarrollado desde cero utilizando frameworks (Astro, Tailwind CSS).",
 		image:
-			"/villacontrol.webp",
-		link: "https://villacontrolperu.com/",
-		github: "",
-		tags: [TAGS.WORDPRESS],
+			"/cywsac.webp",
+		link: "https://cywsac.com/",
+		github: "https://github.com/KaisherCode/cywsac",
+		tags: [TAGS.ASTRO, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
+	},
+	{
+		title: "Landing page de productos de cuidado de salud - Eco-Store",
+		description: "Proyecto desarrollado utilizando framework Astro y TailwindCSS para estilado de CSS",
+		image: "/Eco-store.webp",
+		link: "https://front-end-sand-tau.vercel.app/",
+		github: "https://github.com/kaisherdev/front-end.git",
+		tags: [TAGS.ASTRO, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
 	},
 	{
 		title: "Sitio web de monitoreo ambiental - F&V Peru",
@@ -58,15 +67,15 @@ const PROJECTS = [
 		tags: [TAGS.WORDPRESS],
 	},
 	{
-		title: "Portal de servicios de limpieza y saneamiento - C&W S.A.C.",
+		title: "Portal de soluciones tecnologicas - Villa Control",
 		description:
-			"Página web desarrollado desde cero utilizando frameworks (Astro, Tailwind CSS).",
+			"Sitio web diseñado y construido utilizando herramientas como el editor gutemberg de WordPress.",
 		image:
-			"/cywsac.webp",
-		link: "https://cywsac.com/",
-		github: "https://github.com/KaisherCode/cywsac",
-		tags: [TAGS.ASTRO, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
-	},
+			"/villacontrol.webp",
+		link: "https://villacontrolperu.com/",
+		github: "",
+		tags: [TAGS.WORDPRESS],
+	}
 ];
 ---
 
@@ -83,11 +92,11 @@ const PROJECTS = [
 	</div>
 
 	<div
-		class="cards flex lg:justify-center max-w-5xl overflow-x-auto snap-proximity lg:overflow-x-hidden overscroll-x-contain lg:grid grid-cols-3 lg:gap-0 gap-4 h-auto mx-auto pb-10 pt-8"
+		class="cards flex max-w-5xl overflow-x-auto lg:overflow-x-hidden lg:grid grid-cols-3 gap-8 h-auto mx-auto pb-10 pt-8"
 	>
 		{
 			PROJECTS.map(({ title, description, image, tags, github, link }) => (
-				<article class="bg-white min-w-60 max-w-72 rounded-lg shadow-xl hover:-translate-y-4 transition mx-auto border border-white">
+				<article class="bg-white min-w-60 rounded-lg shadow-xl hover:-translate-y-4 transition mx-auto border border-white">
 					<img src={image} alt="" class="rounded-t-lg" />
 					<div class="p-3">
 						<h4 class="font-bold flex flex-wrap text-blue-400 leading-5">
