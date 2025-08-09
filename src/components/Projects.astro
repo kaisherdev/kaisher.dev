@@ -37,20 +37,19 @@ const TAGS = {
 };
 
 const PROJECTS = [
-
 	{
 		title: "Portal de servicios de limpieza y saneamiento - C&W S.A.C.",
 		description:
 			"Página web desarrollado desde cero utilizando frameworks (Astro, Tailwind CSS).",
-		image:
-			"/cywsac.webp",
-		link: "https://cywsac.com/",
+		image: "/cywsac.webp",
+		link: "https://cywsac.netlify.app/",
 		github: "https://github.com/KaisherCode/cywsac",
 		tags: [TAGS.ASTRO, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
 	},
 	{
 		title: "Landing page de productos de cuidado de salud - Eco-Store",
-		description: "Proyecto desarrollado utilizando framework Astro y TailwindCSS para estilado de CSS",
+		description:
+			"Proyecto desarrollado utilizando framework Astro y TailwindCSS para estilado de CSS",
 		image: "/Eco-store.webp",
 		link: "https://front-end-sand-tau.vercel.app/",
 		github: "https://github.com/kaisherdev/front-end.git",
@@ -60,8 +59,7 @@ const PROJECTS = [
 		title: "Sitio web de monitoreo ambiental - F&V Peru",
 		description:
 			"Sitio web diseñado y construido utilizando herramientas como el editor gutemberg de WordPress.",
-		image:
-			"/fvperu.webp",
+		image: "/fvperu.webp",
 		link: "https://fvperu.com.pe/",
 		github: "",
 		tags: [TAGS.WORDPRESS],
@@ -70,12 +68,11 @@ const PROJECTS = [
 		title: "Portal de soluciones tecnologicas - Villa Control",
 		description:
 			"Sitio web diseñado y construido utilizando herramientas como el editor gutemberg de WordPress.",
-		image:
-			"/villacontrol.webp",
+		image: "/villacontrol.webp",
 		link: "https://villacontrolperu.com/",
 		github: "",
 		tags: [TAGS.WORDPRESS],
-	}
+	},
 ];
 ---
 
@@ -86,8 +83,8 @@ const PROJECTS = [
 			Mis últimos <span class="text-blue-400">trabajos destacados</span>
 		</h2>
 		<p>
-			A continuación, te presento mis proyectos más importantes,
-			que ilustran mi dedicación y pasión por la programación.
+			A continuación, te presento mis proyectos más importantes, que ilustran mi
+			dedicación y pasión por la programación.
 		</p>
 	</div>
 
@@ -112,7 +109,7 @@ const PROJECTS = [
 						<ul class="flex justify-between items-center pt-2 pb-2">
 							<p class="text-slate-400 leading-5 text-sm">{description}</p>
 						</ul>
-						<hr class="h-[2px] w-full min-w-full border-t-0 bg-transparent bg-gradient-to-r from-transparent via-blue-400 to-transparent bg-center text-center"/>
+						<hr class="h-[2px] w-full min-w-full border-t-0 bg-transparent bg-gradient-to-r from-transparent via-blue-400 to-transparent bg-center text-center" />
 						<footer class="flex justify-center gap-2 text-white text-sm mt-2">
 							{github && (
 								<LinkButton href={github}>
@@ -135,10 +132,10 @@ const PROJECTS = [
 </section>
 
 <style>
-.cards article img{
-	transition: transform 0.4s ease-in-out;
-}
-.cards article:hover img{
-	transform: scale(0.95);
-}
+	.cards article img {
+		transition: transform 0.4s ease-in-out;
+	}
+	.cards article:hover img {
+		transform: scale(0.95);
+	}
 </style>
