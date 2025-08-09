@@ -8,7 +8,7 @@ const EXPERIENCE = [
 		date: "August, 2024",
 		description:
 			"Responsable de la página web, componentes y utilidades para el diseño y desarrollo de la página web. Optimización de velocidad de navegación, se utilizan formatos de archivos compactos como WebP para imágenes.",
-		link: "https://cywsac.com",
+		link: "https://cywsac.netlify.app",
 	},
 	{
 		title: "Desarrollador web",
@@ -37,13 +37,16 @@ const EXPERIENCE = [
 ];
 ---
 
-<div id="experience" class="grid place-items-center max-w-5xl mx-auto pt-8 pb-8">
+<div
+	id="experience"
+	class="grid place-items-center max-w-5xl mx-auto pt-8 pb-8"
+>
 	<div class="flex flex-col text-center pb-8 lg:max-w-md lg:mx-auto">
-		<h3 class="pb-4 pt-8 text-slate-400 uppercase">
-			Experiencia laboral
-		</h3>
+		<h3 class="pb-4 pt-8 text-slate-400 uppercase">Experiencia laboral</h3>
 		<h2 class="font-bold text-2xl pb-4 pt-4">
-			3+ años brindando soluciones <span class="text-blue-400"> innovadoras</span>
+			3+ años brindando soluciones <span class="text-blue-400">
+				innovadoras</span
+			>
 		</h2>
 	</div>
 	<div class="container w-full relative h-auto">
@@ -53,7 +56,10 @@ const EXPERIENCE = [
 					<li class="lg:w-[50%] w-full mb-8 p-4 rounded-lg hover:ring-1 hover:ring-white">
 						<h3 class="font-semibold text-xl uppercase">{company}</h3>
 						<h2 class="text-blue-400 font-semibold text-lg">{title}</h2>
-						<time datetime={date} class="date text-blue-100 text-sm font-normal">
+						<time
+							datetime={date}
+							class="date text-blue-100 text-sm font-normal"
+						>
 							{date}
 						</time>
 						<p class="text-gray-400 font-normal text-base leading-5">
@@ -71,7 +77,8 @@ const EXPERIENCE = [
 								stroke="currentColor"
 								fill="none"
 								stroke-linecap="round"
-								stroke-linejoin="round">
+								stroke-linejoin="round"
+							>
 								<>
 									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 									<path d="M9 6l6 6l-6 6" />
