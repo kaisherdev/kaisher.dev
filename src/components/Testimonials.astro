@@ -8,7 +8,7 @@ const TESTIMONIAL = [
 		message:
 			"Trabajar con Kaisher ha sido una experiencia increíble. Su enfoque innovador y atención al detalle han llevado nuestra marca a un nuevo nivel. No podríamos estar más satisfechos con los resultados.",
 		company: "Villa Control Peru s.a.c.",
-		website:"https://villacontrolperu.com"
+		website: "https://villacontrolperu.com",
 	},
 	{
 		avatar: "./Eli-moya.jpg",
@@ -18,7 +18,7 @@ const TESTIMONIAL = [
 		message:
 			"La profesionalidad y creatividad de KaisherDev superaron nuestras expectativas. Desde la conceptualización hasta la ejecución, demostró un compromiso inquebrantable con nuestra visión y objetivos.",
 		company: "F&V Peru s.a.c.",
-		website:"https://fvperu.com.pe"
+		website: "https://fvperu.com.pe",
 	},
 	{
 		avatar: "./William-hurtado.png",
@@ -28,7 +28,7 @@ const TESTIMONIAL = [
 		message:
 			"Gracias a KaisherDev, nuestro proyecto fue un éxito rotundo. Su capacidad para entender nuestras necesidades y traducirlas en soluciones visuales impactantes es realmente admirable.",
 		company: "Saneamientos Amb. c&w s.a.c.",
-		website:"https://cywsac.com"
+		website: "https://cywsac.netlify.app/",
 	},
 ];
 ---
@@ -52,19 +52,24 @@ const TESTIMONIAL = [
 				<article class="card lg:min-h-44 bg-gray-800 text-blue-400 p-4 rounded-lg hover:ring-1 hover:ring-white">
 					<div class="flex gap-4 pb-4 items-center">
 						<img
-					src={avatar}
-					alt={name}
-					class="w-10 h-10 rounded-full border-2 border-blue-400"
-					/>
+							src={avatar}
+							alt={name}
+							class="w-10 h-10 rounded-full border-2 border-blue-400"
+						/>
 						<div>
 							<h2 class="font-bold">{name}</h2>
 							<h4 class="font-bold text-slate-300 text-xs">{title}</h4>
-							<a href={website} target="_blank" rel="noopener" class="text-base">{company}</a>
+							<a
+								href={website}
+								target="_blank"
+								rel="noopener"
+								class="text-base"
+							>
+								{company}
+							</a>
 						</div>
 					</div>
-					<p class="text-slate-200">
-						"{message}"
-					</p>
+					<p class="text-slate-200">"{message}"</p>
 				</article>
 			))
 		}
